@@ -1,0 +1,38 @@
+-----=====-----=====-----=====-----=====-----=====-----=====-----=====--
+
+Simulate a fresh install on a brand new computer anytime using a virtual
+machine.
+
+Check if your processor has virtualization support for KVM.
+
+  $ lscpu | grep Virtualization
+
+Install package "qemu" using your installer. TODO: on some systems you
+may need to be more specific. Test and document.
+
+Create a virtual disk drive for the VM. Use the "qcow2" format so it
+will not take up space unnecessarily. 10G of space is often enough but
+make the disk space bigger if needed.
+
+  $ qemu-img create -f qcow2 centos7.img 10G
+
+Boot up a VM configured to boot from the installation media. Be sure to
+enable-kvm so it runs smoothly, and give it a reasonable amount of RAM
+like 2 GB.
+
+  $ qemu-system-x86_64 -cdrom \
+    ~/Downloads/CentOS-7-x86_64-DVD-2009/CentOS-7-x86_64-DVD-2009.iso \
+    -boot order=d -drive file=centos7.img,format=qcow2 -m 2G -enable-kvm
+
+Complete the installation process like normal, then you can reboot or
+poweroff the virtual machine. Boot your newly installed system. The
+VM is called a "guest" while your actual computer is called the "host".
+
+  $ qemu-system-x85_64 -drive file=centos7.img,format=qcow2 -m 2G \
+    -enable-kvm
+
+QEMU automatically provides a wired network connection for the guest to
+use whatever network connection your host machine has. I had to
+configure CentOS to use the network by using the following command.
+
+  $ dhclient
