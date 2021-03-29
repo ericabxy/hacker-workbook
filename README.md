@@ -1,2 +1,2 @@
 # hacker-workbook
-Fourth iteration of my tips and tricks for PC administration and troubleshooting
+Fourth iteration of my tips and tricks for computer system administration and troubleshooting
