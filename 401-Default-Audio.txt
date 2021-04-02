@@ -1,0 +1,7 @@
+----====----====----====----====----====----====----====----====----====
+
+You can change the default audio device using a system-wide
+configuration file located the the /etc directory.
+
+  # nano /etc/asound.conf
+
