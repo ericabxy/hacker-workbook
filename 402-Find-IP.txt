@@ -1,0 +1,23 @@
+----====----====----====----====----====----====----====----====----====
+
+You can find devices on your subnet by the IP address they are listening
+on. This is useful if you connect to another computer via ethernet
+cable. Use one of the following commands to find your own IP first.
+
+  $ ifconfig
+  $ hostname -I
+
+Your IP address on the local area network will usually starts with
+192.168. Your IP address on an ethernet connection direct with another
+computer usually starts with 10.42. You can scan for other devices on
+the network you're looking for.
+
+  $ nmap -sn 10.42.0.0/24
+
+You can sus out the computer you're looking for using the results of the
+command. The usually command exits after only a few seconds, so if it
+takes very long you may have another issue.
+
+Now you can connect to the remote computer.
+
+  $ ssh me@10.42.0.128
