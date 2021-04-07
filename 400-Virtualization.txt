@@ -36,3 +36,9 @@ use whatever network connection your host machine has. I had to
 configure CentOS to use the network by using the following command.
 
   $ dhclient
+
+To connect to servers running on the guest machine, you need to forward
+special ports to localhost (127.0.0.1)
+
+  $ qemu-system-x85_64 -drive file=centos7.img,format=qcow2 -m 2G \
+    -enable-kvm -nic user,hostfwd=tcp::10022-:22,hostfwd=tcp::18080-:8080
