@@ -3,7 +3,7 @@
 TODO: how to install a Jenkins/BlueOcean docker container
 
 The following command starts a Docker container running Jenkins with
-Blue Ocean pre-installed. The jenkins_home variable sets up a permanent
+Blue Ocean pre-installed. The -v jenkins_home variable uses a permanent
 folder so Jenkins data persists after re-starting the container.
 
   $ docker run -p 8080:8080 -p 50000:50000 -v \
