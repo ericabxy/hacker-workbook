@@ -43,3 +43,8 @@ above but with special ports forwarded to it for SSH and HTTP access.
 
   $ qemu-system-x85_64 -drive file=centos7.img,format=qcow2 -m 2G \
     -enable-kvm -nic user,hostfwd=tcp::10022-:22,hostfwd=tcp::18080-:8080
+
+You can now connect by going to http://localhost:18080 or use SSH as
+follows.
+
+  $ ssh -p 10022 127.0.0.1
