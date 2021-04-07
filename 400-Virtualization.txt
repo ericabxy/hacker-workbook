@@ -38,7 +38,8 @@ configure CentOS to use the network by using the following command.
   $ dhclient
 
 To connect to servers running on the guest machine, you need to forward
-special ports to localhost (127.0.0.1)
+unused ports to the guest. The following command launches the machine as
+above but with special ports forwarded to it for SSH and HTTP access.
 
   $ qemu-system-x85_64 -drive file=centos7.img,format=qcow2 -m 2G \
     -enable-kvm -nic user,hostfwd=tcp::10022-:22,hostfwd=tcp::18080-:8080
