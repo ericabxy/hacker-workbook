@@ -1,0 +1,10 @@
+  $ virtualenv -p python3 envname
+  $ source envname/bin/activate
+
+Use pip to install and remove python modules in this environment.
+
+  (envname) $ pip install zero_play
+
+Leave the environment.
+
+  (envname) $ deactivate
